@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title style="color: white;">Call of Duty - Interfaz</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Arreglo con las URLs de las imágenes
+        var imagenes = [
+          "imagenes/imagen1.jpg",
+          "imagenes/imagen2.jpg",
+          "imagenes/imagen3.jpg",
+          "imagenes/imagen4.jpg",
+          "imagenes/imagen5.jpg"
+        ];
+    
+        // Función para cambiar la imagen hacia adelante
+        function cambiarImagenAdelante() {
+          var imagen = document.getElementById("imagen");
+          var boton = document.getElementById("boton");
+          var botonRegresar = document.getElementById("botonRegresar");
+    
+          // Obtener el índice actual de la imagen
+          var indice = parseInt(imagen.dataset.indice);
+    
+          // Actualizar el índice para obtener la siguiente imagen
+          indice = (indice + 1) % imagenes.length;
+    
+          // Cambiar la imagen y actualizar el índice en el atributo de datos
+          imagen.src = imagenes[indice];
+          imagen.dataset.indice = indice;
+    
+          // Cambiar el texto del botón
+          boton.textContent = "Cambiar imagen (" + (indice + 1) + "/" + imagenes.length + ")";
+          botonRegresar.disabled = false;
+        }
+    
+        // Función para cambiar la imagen hacia atrás
+        function cambiarImagenAtras() {
+          var imagen = document.getElementById("imagen");
+          var boton = document.getElementById("boton");
+          var botonRegresar = document.getElementById("botonRegresar");
+    
+          // Obtener el índice actual de la imagen
+          var indice = parseInt(imagen.dataset.indice);
+    
+          // Actualizar el índice para obtener la imagen anterior
+          indice = (indice - 1 + imagenes.length) % imagenes.length;
+    
+          // Cambiar la imagen y actualizar el índice en el atributo de datos
+          imagen.src = imagenes[indice];
+          imagen.dataset.indice = indice;
+    
+          // Cambiar el texto del botón
+          boton.textContent = "Cambiar imagen (" + (indice + 1) + "/" + imagenes.length + ")";
+    
+        }
+      </script>
+
+  </head>
+  <body>
+    
+
+
+    <div>
+      <p id="texto"></p>
+      <button onclick="cambiarTexto()">Me gusta</button>
+  </div>
+    
+    <header>
+      <h1 style="color: white;">Call of Duty</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Multijugador</a></li>
+          <li><a href="#">Campaña</a></li>
+          <li><a href="#">Acerca de</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2 style="color: white;">Bienvenido a Call of Duty</h2>
+      <p style="color: white;">Este es el mejor juego de acción que encontrarás en la actualidad. Explora una gran variedad de modos de juego y disfruta de la acción más intensa.</p>
+    
+        
+      <img id="imagen" src="imagenes/imagen1.jpg" data-indice="0" width="300" height="200" />
+      <br />
+      <button id="botonRegresar" onclick="cambiarImagenAtras()" disabled>Regresar</button>
+      <button id="boton" onclick="cambiarImagenAdelante()">Cambiar imagen (1/5)</button>
+  
+      <h3 style="color: white;">Características del juego</h3>
+      <ul>
+        <li style="color: white;">Multijugador en línea con una gran variedad de modos de juego</li>
+        <li style="color: white;">Campaña para un jugador con una historia épica</li>
+        <li style="color: white;">Modo cooperativo para jugar con tus amigos</li>
+        <li style="color: white;">Gráficos increíbles y realistas</li>
+        <li style="color: white;">Sonidos y efectos de sonido impactantes</li>
+      </ul>
+    </main>
+
+    <style>
+      body {
+          background-image: url("https://as01.epimg.net/meristation/imagenes/2019/10/06/noticias/1570363183_546021_1570363257_noticia_normal.jpg");
+          background-repeat: no-repeat;
+          background-size: cover;
+      }
+  </style>
+
+
+
+
+    <footer>
+      <p style="color: red;">Derechos reservados © Call of Duty 2023</p>
+    </footer>
+
+    
+
+
+
+
+  </body>
+</html>
+
